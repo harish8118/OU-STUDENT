@@ -107,76 +107,51 @@ class setPinVC: UIViewController,UITextFieldDelegate {
             loadingView.shouldTapToDismiss = false
             loadingView.show(on: view)
             
-//            SKActivityIndicator.spinnerColor(UIColor.init(red: 239.0/255.0, green: 82.0/255.0, blue: 93.0/255.0, alpha: 1.0))
-//            SKActivityIndicator.statusTextColor(UIColor.black)
-//            let myFont = UIFont(name: "AvenirNext-DemiBold", size: 18)
-//            SKActivityIndicator.statusLabelFont(myFont!)
-//            SKActivityIndicator.spinnerStyle(.spinningHalfCircles)
-//            SKActivityIndicator.show("Loading...", userInteractionStatus: true)
-              
+            let myDevice : UIDevice = UIDevice.current
+            let identifier : String = myDevice.identifierForVendor!.uuidString
+
             let defaults = UserDefaults.standard
-//            guard let gitUrl = URL(string: setPinAPI +  "\(defaults.value(forKey: "HallTicket") ?? 123)&pin=\(self.pinTF.text!)") else { return }
-//
-//            URLSession.shared.dataTask(with: gitUrl) { (data, response
-//                            , error) in
-//
-//            guard let data = data else { return }
-//            do {
-//
-//                let jsonResponse = try JSONSerialization.jsonObject(with:
-//                     data, options: JSONSerialization.ReadingOptions.allowFragments) as! intmax_t
-//                 print("res:\(jsonResponse)")
-                
-        //        DispatchQueue.main.sync {
-                    
-//                if jsonResponse == 1 {
-                    
-//                    //SKActivityIndicator.dismiss()
-                    
-                    guard let appdlgt = UIApplication.shared.delegate as? AppDelegate else {return}
-                    let mangdCntxt = appdlgt.persistentContainer.viewContext
-                    
-                    let usrEnty1 = NSEntityDescription.entity(forEntityName: "LoginDetails", in: mangdCntxt)!
-
-                    let user1 = NSManagedObject.init(entity: usrEnty1, insertInto: mangdCntxt)   
-                        user1.setValue(self.pinTF.text, forKey: "pin")
-
-                    do{
-                        try mangdCntxt.save()
-                        loadingView.hide()
-                        defaults.setValue("1", forKey: "pinStatus")
-                        defaults.setValue("0", forKey: "Status")
-                         let vc:loginVC = self.storyboard?.instantiateViewController(withIdentifier: "loginVC") as! loginVC
-                         self.navigationController?.pushViewController(vc, animated: true)
-                         self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
-                         self.navigationController?.isToolbarHidden = true
+            guard let gitUrl = URL(string: setPinAPI +  "\(defaults.value(forKey: "HallTicket") ?? 123)&pin=\(self.pinTF.text!)&DeviceID=\(identifier)&Mobile=\(defaults.value(forKey: "mobile") ?? "")") else { return }
                         
-                    }catch let err as NSError {
-                        print("error is:\(err)")
-                        loadingView.hide()
-                        let alert = UIAlertController(title: "Failed", message: "Something went wrong.Try again.", preferredStyle: UIAlertController.Style.actionSheet)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                    }
+            URLSession.shared.dataTask(with: gitUrl) { (data, response
+                            , error) in
+                            
+            guard let data = data else { return }
+            do {
+                                
+                let jsonResponse = try JSONSerialization.jsonObject(with:
+                     data, options: JSONSerialization.ReadingOptions.allowFragments) as! intmax_t
+                 print("res:\(jsonResponse)")
+                                
+                DispatchQueue.main.sync {
                     
-          //  }
-                     // handle json...
+                if  jsonResponse == 1 {
                     
-//                }else {
-//                    loadingView.hide()
-//                   // SKActivityIndicator.dismiss()
-//                    let alert = UIAlertController(title: "Failed", message: "Something went wrong.Try again.", preferredStyle: UIAlertController.Style.actionSheet)
-//                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//                    self.present(alert, animated: true, completion: nil)
-//                }
-//                }
-//
-//            } catch let err {
-//                loadingView.hide()
-//                //SKActivityIndicator.dismiss()
-//                print("Err", err)
-//                }
-//            }.resume()
+                    loadingView.hide()
+                    defaults.setValue("1", forKey: "pinStatus")
+                    defaults.setValue("0", forKey: "Status")
+                     let vc:loginVC = self.storyboard?.instantiateViewController(withIdentifier: "loginVC") as! loginVC
+                     self.navigationController?.pushViewController(vc, animated: true)
+                     self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
+                     self.navigationController?.isToolbarHidden = true
+                       
+                }else {
+                    loadingView.hide()
+    
+                    let alert = UIAlertController(title: "Failed", message: "Something went wrong.Try again.", preferredStyle: UIAlertController.Style.actionSheet)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+
+                }
+                    
+                }
+                                
+            } catch let err {
+                loadingView.hide()
+                //SKActivityIndicator.dismiss()
+                print("Err", err)
+                }
+            }.resume()
     
         }
         
@@ -198,3 +173,15 @@ class setPinVC: UIViewController,UITextFieldDelegate {
         
     }
 }
+
+
+//                    guard let appdlgt = UIApplication.shared.delegate as? AppDelegate else {return}
+//                    let mangdCntxt = appdlgt.persistentContainer.viewContext
+//
+//                    let usrEnty1 = NSEntityDescription.entity(forEntityName: "LoginDetails", in: mangdCntxt)!
+//
+//                    let user1 = NSManagedObject.init(entity: usrEnty1, insertInto: mangdCntxt)
+//                        user1.setValue(self.pinTF.text, forKey: "pin")
+
+
+

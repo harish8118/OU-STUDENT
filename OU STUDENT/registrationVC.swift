@@ -11,17 +11,15 @@ import RSLoadingView
 import Alamofire
 
 struct MyGitHubs: Codable {
-    let Name: String?
-    let MobileNo: String?
-    let HTNO: String?
-    let Sem: String?
+    let SName: String
+    let HTNo: String?
+    let Course: String?
     
     
     private enum CodingKeys: String, CodingKey {
-        case Name
-        case MobileNo
-        case HTNO
-        case Sem
+        case SName
+        case HTNo
+        case Course
     }
 }
 
@@ -96,7 +94,7 @@ class registrationVC: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func continueAct(_ sender: UIButton) {
-        if self.hlTF.text == "123319401001" && self.mblTF.text == "9999999999" {
+        guard self.hlTF.text != "123319401001" && self.mblTF.text != "9999999999" else {
             let defaults = UserDefaults.standard
             
             defaults.setValue("123319401001", forKey: "HallTicket")
@@ -110,101 +108,88 @@ class registrationVC: UIViewController,UITextFieldDelegate {
             self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
             self.navigationController?.isNavigationBarHidden = false
             self.navigationController?.pushViewController(vc, animated: true)
-            
-        }else if self.hlTF.text?.count==0 {
+            return
+        }
+        
+        guard self.hlTF.text?.count ?? 0>0 else {
             self.hlErr.isHidden = false
-            
-        }else if self.mblTF.text?.count ?? 0<10 {
+            return
+        }
+        
+        guard self.mblTF.text?.count ?? 0 == 10 else {
             self.mblErr.isHidden = false
-            
-        }else if self.hlTF.text?.count ?? 0>0 && self.mblTF.text?.count ?? 0>0 {
-        
-            self.hlErr.isHidden = true
-            self.mblErr.isHidden = true
-           
-            loadingView.shouldTapToDismiss = false
-            loadingView.show(on: view)
-            
-//            SKActivityIndicator.spinnerColor(UIColor.init(red: 239.0/255.0, green: 82.0/255.0, blue: 93.0/255.0, alpha: 1.0))
-//            SKActivityIndicator.statusTextColor(UIColor.black)
-//            let myFont = UIFont(name: "AvenirNext-DemiBold", size: 18)
-//            SKActivityIndicator.statusLabelFont(myFont!)
-//            SKActivityIndicator.spinnerStyle(.spinningHalfCircles)
-//            SKActivityIndicator.show("Loading...", userInteractionStatus: true)
-        
-           
-            let myDevice : UIDevice = UIDevice.current
-            let identifier : String = myDevice.identifierForVendor!.uuidString
-           
-            guard let gitUrl = URL(string: regAPI + self.hlTF.text! + "&MobileNo=\(self.mblTF.text!)&DeviceID=\(identifier)") else { return }
-             print("url:\(gitUrl)")
-            URLSession.shared.dataTask(with: gitUrl) { (data, response
-                            , error) in
-                 
-                if let err = error {
-                    print("err:\(err)")
-                    
-                    if Connectivity.isConnectedToInternet() {
-                           print("Yes! internet is available.")
-                           // do some tasks..
-                    }else{
-                        let alert = UIAlertController(title: "Alert", message: "No internet is available. Please connect to network.", preferredStyle: UIAlertController.Style.actionSheet)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                }
+            return
+        }
+
+        loadingView.shouldTapToDismiss = false
+        loadingView.show(on: view)
+       
+        guard let gitUrl = URL(string: regAPI + self.hlTF.text! ) else { return }
+         print("url:\(gitUrl)")
+        URLSession.shared.dataTask(with: gitUrl) { (data, response
+                        , error) in
+             
+            if let err = error {
+                print("err:\(err)")
                 
-            guard let data = data else { return }
-            do {
-                                
-                let decoder = JSONDecoder()
-                self.resltData = try decoder.decode(MyGitHubs.self, from: data)
-                            
-                print("gitData:\(self.resltData)")
-                                
-                DispatchQueue.main.sync {
-                    let tmp : String! = "\(self.resltData?.HTNO ?? "123")"
-                    
-                if  tmp == "123" {
-                        
-                    //SKActivityIndicator.dismiss()
-                    loadingView.hide()
-                    let alert = UIAlertController(title: "Failed", message: "Sorry! Data is not found. \n Note: Currently - UG Results are available.", preferredStyle: UIAlertController.Style.actionSheet)
+                if Connectivity.isConnectedToInternet() {
+                       print("Yes! internet is available.")
+                       // do some tasks..
+                }else{
+                    let alert = UIAlertController(title: "Alert", message: "No internet is available. Please connect to network.", preferredStyle: UIAlertController.Style.actionSheet)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
-
-                                        
-                }else {
-                   //SKActivityIndicator.dismiss()
-                    loadingView.hide()
-                    let defaults = UserDefaults.standard
-                    
-                    defaults.setValue(self.resltData?.HTNO, forKey: "HallTicket")
-                    defaults.setValue(self.resltData?.Name, forKey: "name")
-                    defaults.setValue(self.resltData?.MobileNo, forKey: "mobile")
-                    defaults.setValue(self.resltData?.Sem, forKey: "Course")
-                    
-                    let vc:confrmVC = self.storyboard?.instantiateViewController(withIdentifier: "confrmVC") as! confrmVC
-                    self.navigationController?.pushViewController(vc, animated: true)
-                    self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
-                    self.navigationController?.isToolbarHidden = true
                 }
+            }
+            
+        guard let data = data else { return }
+        do {
+                            
+            let decoder = JSONDecoder()
+            self.resltData = try decoder.decode(MyGitHubs.self, from: data)
+                        
+            print("gitData:\(self.resltData)")
+                            
+            DispatchQueue.main.sync {
+                
+            if  self.resltData == nil {
                     
-                }
-                                
-            } catch let err {
-                loadingView.hide()
                 //SKActivityIndicator.dismiss()
-                print("Err", err)
-                DispatchQueue.main.sync {
+                loadingView.hide()
                 let alert = UIAlertController(title: "Failed", message: "Sorry! Data is not found. \n Note: Currently - UG Results are available.", preferredStyle: UIAlertController.Style.actionSheet)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
-                }
-                }
-            }.resume()
-            
-        }
+
+                                    
+            }else {
+               //SKActivityIndicator.dismiss()
+                loadingView.hide()
+                let defaults = UserDefaults.standard
+                
+                defaults.setValue(self.resltData?.HTNo, forKey: "HallTicket")
+                defaults.setValue(self.resltData?.SName, forKey: "name")
+                defaults.setValue(self.mblTF.text, forKey: "mobile")
+                defaults.setValue(self.resltData?.Course, forKey: "Course")
+                
+                let vc:confrmVC = self.storyboard?.instantiateViewController(withIdentifier: "confrmVC") as! confrmVC
+                self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
+                self.navigationController?.isToolbarHidden = true
+            }
+                
+            }
+                            
+        } catch let err {
+            loadingView.hide()
+            //SKActivityIndicator.dismiss()
+            print("Err", err)
+            DispatchQueue.main.sync {
+            let alert = UIAlertController(title: "Failed", message: "Sorry! Data is not found. \n Note: Currently - UG Results are available.", preferredStyle: UIAlertController.Style.actionSheet)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            }
+            }
+        }.resume()
     }
     
     @objc func resign(){

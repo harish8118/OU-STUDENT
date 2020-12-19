@@ -42,12 +42,6 @@ class confrmVC: UIViewController {
         loadingView.shouldTapToDismiss = false
         loadingView.show(on: view)
         
-//        SKActivityIndicator.spinnerColor(UIColor.init(red: 239.0/255.0, green: 82.0/255.0, blue: 93.0/255.0, alpha: 1.0))
-//        SKActivityIndicator.statusTextColor(UIColor.black)
-//        let myFont = UIFont(name: "AvenirNext-DemiBold", size: 18)
-//        SKActivityIndicator.statusLabelFont(myFont!)
-//        SKActivityIndicator.spinnerStyle(.spinningHalfCircles)
-//        SKActivityIndicator.show("Loading...", userInteractionStatus: true)
           
         let defaults = UserDefaults.standard
         guard let gitUrl = URL(string: otpAPI +  "\(defaults.value(forKey: "HallTicket") ?? 123)&MobileNo=\(defaults.value(forKey: "mobile") ?? 123)") else { return }
@@ -96,7 +90,7 @@ class confrmVC: UIViewController {
     }
     
     @IBAction func backAct(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
 

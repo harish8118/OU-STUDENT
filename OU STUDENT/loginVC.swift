@@ -13,13 +13,13 @@ import Foundation
 
 
 struct loginHubs: Codable {
-    let SName: String?
+    let UserName: String?
     let MobileNo: String?
     let HTNO: String?
     let Course: String?
     
     private enum CodingKeys: String, CodingKey {
-        case SName
+        case UserName
         case MobileNo
         case HTNO
         case Course
@@ -185,11 +185,7 @@ class loginVC: UIViewController,UITextFieldDelegate {
                 self.present(alert, animated: true, completion: nil)
 
             }else {
-    
-                defaults.setValue(self.loginData?.HTNO, forKey: "HallTicket")
-                defaults.setValue(self.loginData?.SName, forKey: "name")
-                defaults.setValue(self.loginData?.MobileNo, forKey: "mobile")
-                defaults.setValue(self.loginData?.Course, forKey: "Course")
+
                 defaults.setValue("1", forKey: "Status")
 
                 DispatchQueue.main.sync {

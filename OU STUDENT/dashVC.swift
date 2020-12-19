@@ -57,68 +57,70 @@ class dashVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
 //            }
 //        }
 //
-//        let loadingView1 = RSLoadingView(effectType: RSLoadingView.Effect.twins)
-//        loadingView1.shouldTapToDismiss = false
-//        loadingView1.show(on: view)
-//
-//        
-//        guard let gitUrl = URL(string: versionApi +  "3") else { return }
-//                                
-//            URLSession.shared.dataTask(with: gitUrl) { (data, response
-//                                    , error) in
-//        
-//            if let err = error {
-//                print("err:\(err)")
-//                loadingView1.hide()
-//                
-//                if Connectivity.isConnectedToInternet() {
-//                        print("Yes! internet is available.")
-//                        // do some tasks..
-//                }else{
-//                    let alert = UIAlertController(title: "Alert", message: "No internet is available. Please connect to network.", preferredStyle: UIAlertController.Style.actionSheet)
-//                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//                    self.present(alert, animated: true, completion: nil)
-//                }
-//            }
-//            
-//        guard let data = data else { return }
-//        do {
-//                            
-//            let jsonResponse = try JSONSerialization.jsonObject(with:
-//                 data, options: JSONSerialization.ReadingOptions.allowFragments) as! Bool
-//             print("res:\(jsonResponse)")
-//            
-//            let update = try self.isUpdateAvailable()
-//            
-//            DispatchQueue.main.sync {
-//                
-//                if  jsonResponse == false && update == true {
-//                
-//                    loadingView1.hide()
-//                    //SKActivityIndicator.dismiss()
-//                    let alert = UIAlertController(title: "Update", message: "Continue to use OU Student. Please Download Update Version app.", preferredStyle: UIAlertController.Style.actionSheet)
-//                    alert.addAction(UIAlertAction(title: "Update", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
-//                        if let url = URL(string: "https://apps.apple.com/us/app/ou-student/id1498015805?ls=1"),
-//                            UIApplication.shared.canOpenURL(url){
-//                            UIApplication.shared.open(url, options: [:]) { (opened) in
-//                                
-//                            }
-//                        }
-//                    }))
-//                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-//                    self.present(alert, animated: true, completion: nil)
-//                                    
-//                }
-//                loadingView1.hide()
-//            }
-//                            
-//        } catch let err {
-//            loadingView1.hide()
-//            //SKActivityIndicator.dismiss()
-//            print("Err", err)
-//            
-//            }
-//        }.resume()
+        
+        loadingView.shouldTapToDismiss = false
+        loadingView.show(on: view)
+
+        
+        guard let gitUrl = URL(string: versionApi +  "4") else { return }
+                                
+            URLSession.shared.dataTask(with: gitUrl) { (data, response
+                                    , error) in
+        
+            if let err = error {
+                print("err:\(err)")
+                loadingView.hide()
+                
+                if Connectivity.isConnectedToInternet() {
+                        print("Yes! internet is available.")
+                        // do some tasks..
+                }else{
+                    let alert = UIAlertController(title: "Alert", message: "No internet is available. Please connect to network.", preferredStyle: UIAlertController.Style.actionSheet)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            
+        guard let data = data else { return }
+        do {
+                            
+            let jsonResponse = try JSONSerialization.jsonObject(with:
+                 data, options: JSONSerialization.ReadingOptions.allowFragments) as! Bool
+             print("res:\(jsonResponse)")
+            
+            //let update = try self.isUpdateAvailable()
+            
+            //https://apps.apple.com/us/app/ou-student/id1498015805?ls=1
+            DispatchQueue.main.sync {
+                
+                if  jsonResponse == false  {
+                
+                    loadingView.hide()
+                    //SKActivityIndicator.dismiss()
+                    let alert = UIAlertController(title: "Update", message: "Continue to use OU Student. Please Download Update Version app.", preferredStyle: UIAlertController.Style.actionSheet)
+                    alert.addAction(UIAlertAction(title: "Update", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+                        if let url = URL(string: "https://apps.apple.com/us/app/ou-student/id1498015805"),
+                            UIApplication.shared.canOpenURL(url){
+                            UIApplication.shared.open(url, options: [:]) { (opened) in
+                                
+                            }
+                        }
+                    }))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                                    
+                }
+                loadingView.hide()
+            }
+                            
+        } catch let err {
+            loadingView.hide()
+            //SKActivityIndicator.dismiss()
+            print("Err", err)
+            
+            }
+        }.resume()
+        
         
         
         
