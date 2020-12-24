@@ -24,8 +24,8 @@
 		CC09851B23EEDEC00022D764 /* loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = CC09851823EEDEC00022D764 /* loader.gif */; };
 		CC09851C23EEDEC00022D764 /* sad.gif in Resources */ = {isa = PBXBuildFile; fileRef = CC09851923EEDEC00022D764 /* sad.gif */; };
 		CC09851D23EEDEC00022D764 /* update.gif in Resources */ = {isa = PBXBuildFile; fileRef = CC09851A23EEDEC00022D764 /* update.gif */; };
-		CC211617255954110099390A /* libBilldesk_simulator_1.6.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC211616255954110099390A /* libBilldesk_simulator_1.6.4.a */; };
 		CC342AB2254D4E5C001A6195 /* prflVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC342AB1254D4E5C001A6195 /* prflVC.swift */; };
+		CC48B705259475AD00DECDF1 /* libBilldesk_simulator_1.6.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC48B704259475AD00DECDF1 /* libBilldesk_simulator_1.6.4.a */; };
 		CC62C13A248666B2005B27B6 /* R-3360255-1327298577.jpeg.png in Resources */ = {isa = PBXBuildFile; fileRef = CC62C139248666B2005B27B6 /* R-3360255-1327298577.jpeg.png */; };
 		CC63AD5F246E79EE006C9448 /* ThankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63AD5E246E79EE006C9448 /* ThankVC.swift */; };
 		CC63AD8E246E7A66006C9448 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC63AD62246E7A66006C9448 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
@@ -126,8 +126,8 @@
 		CC09851823EEDEC00022D764 /* loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loader.gif; sourceTree = "<group>"; };
 		CC09851923EEDEC00022D764 /* sad.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sad.gif; sourceTree = "<group>"; };
 		CC09851A23EEDEC00022D764 /* update.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = update.gif; sourceTree = "<group>"; };
-		CC211616255954110099390A /* libBilldesk_simulator_1.6.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBilldesk_simulator_1.6.4.a; sourceTree = "<group>"; };
 		CC342AB1254D4E5C001A6195 /* prflVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prflVC.swift; sourceTree = "<group>"; };
+		CC48B704259475AD00DECDF1 /* libBilldesk_simulator_1.6.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBilldesk_simulator_1.6.4.a; sourceTree = "<group>"; };
 		CC62C139248666B2005B27B6 /* R-3360255-1327298577.jpeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "R-3360255-1327298577.jpeg.png"; sourceTree = "<group>"; };
 		CC63AD5E246E79EE006C9448 /* ThankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankVC.swift; sourceTree = "<group>"; };
 		CC63AD62246E7A66006C9448 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
@@ -208,10 +208,10 @@
 			files = (
 				CC63ADB1246E99EB006C9448 /* WebKit.framework in Frameworks */,
 				49A50AC7F88C5FA2A77719D1 /* Pods_OU_STUDENT.framework in Frameworks */,
+				CC48B705259475AD00DECDF1 /* libBilldesk_simulator_1.6.4.a in Frameworks */,
 				CC00DB0323F18A98006F0D95 /* CoreData.framework in Frameworks */,
 				CC04196B23ED68880029E939 /* Network.framework in Frameworks */,
 				CC69E37F247F8D0800C7F16B /* AVFoundation.framework in Frameworks */,
-				CC211617255954110099390A /* libBilldesk_simulator_1.6.4.a in Frameworks */,
 				CC6DFA942480D73E004CDDE4 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,7 +328,7 @@
 		CC63AD8B246E7A66006C9448 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				CC211616255954110099390A /* libBilldesk_simulator_1.6.4.a */,
+				CC48B704259475AD00DECDF1 /* libBilldesk_simulator_1.6.4.a */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -906,7 +906,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = KHWFSL6XBF;
 				INFOPLIST_FILE = "OU STUDENT/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -916,6 +916,8 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/OU\\ STUDENT/Library1.6.4/Library",
+					"$(PROJECT_DIR)/OU\\ STUDENT/Library1.6.4/Library",
 					"$(PROJECT_DIR)/OU\\ STUDENT/Library1.6.4/Library",
 					"$(PROJECT_DIR)/OU\\ STUDENT/Library1.6.4/Library",
 					"$(PROJECT_DIR)/OU\\ STUDENT/Library1.6.4/Library",
@@ -948,7 +950,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = KHWFSL6XBF;
 				INFOPLIST_FILE = "OU STUDENT/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -958,6 +960,8 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/OU\\ STUDENT/Library1.6.4/Library",
+					"$(PROJECT_DIR)/OU\\ STUDENT/Library1.6.4/Library",
 					"$(PROJECT_DIR)/OU\\ STUDENT/Library1.6.4/Library",
 					"$(PROJECT_DIR)/OU\\ STUDENT/Library1.6.4/Library",
 					"$(PROJECT_DIR)/OU\\ STUDENT/Library1.6.4/Library",

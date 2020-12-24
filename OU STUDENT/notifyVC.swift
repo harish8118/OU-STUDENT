@@ -96,6 +96,9 @@ class notifyVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         rtrn.cntntLbl.text = str.value(forKey: "NDescription") as? String
         
+        rtrn.layer.cornerRadius = 8.0
+        rtrn.layer.borderWidth = 1.0
+        rtrn.layer.masksToBounds = true
         return rtrn
     }
     

@@ -944,31 +944,33 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="dash6" id="ys5-5s-1AP" customClass="dashCell" customModule="OU_STUDENT" customModuleProvider="target">
                                         <rect key="frame" x="20" y="550" width="130" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="x6z-X3-Ngj">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="x6z-X3-Ngj">
                                             <rect key="frame" x="0.0" y="0.0" width="130" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="spl-feature_disable" translatesAutoresizingMaskIntoConstraints="NO" id="ixe-Wt-9N4">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spl-feature_disable" translatesAutoresizingMaskIntoConstraints="NO" id="ixe-Wt-9N4">
                                                     <rect key="frame" x="15" y="8" width="100" height="100"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="l9i-m1-X0K"/>
-                                                        <constraint firstAttribute="width" constant="100" id="v8w-aL-AtJ"/>
+                                                        <constraint firstAttribute="height" constant="100" id="SI2-GR-agI"/>
+                                                        <constraint firstAttribute="width" constant="100" id="p1P-aw-baP"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Special Features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhm-Do-aNW">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Special Features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhm-Do-aNW">
                                                     <rect key="frame" x="0.0" y="116" width="130" height="41"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="41" id="joM-rx-E2Q"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="jhm-Do-aNW" firstAttribute="top" secondItem="ixe-Wt-9N4" secondAttribute="bottom" constant="8" id="3bt-Jg-AQ5"/>
-                                                <constraint firstAttribute="trailing" secondItem="jhm-Do-aNW" secondAttribute="trailing" id="F1N-Sg-YZV"/>
-                                                <constraint firstItem="jhm-Do-aNW" firstAttribute="leading" secondItem="x6z-X3-Ngj" secondAttribute="leading" id="a9E-hR-ah8"/>
-                                                <constraint firstAttribute="bottom" secondItem="jhm-Do-aNW" secondAttribute="bottom" constant="3" id="i7f-tK-XGc"/>
-                                                <constraint firstItem="ixe-Wt-9N4" firstAttribute="top" secondItem="x6z-X3-Ngj" secondAttribute="top" constant="8" id="udk-5V-cNb"/>
-                                                <constraint firstItem="ixe-Wt-9N4" firstAttribute="centerX" secondItem="x6z-X3-Ngj" secondAttribute="centerX" id="ypu-eR-lxh"/>
+                                                <constraint firstAttribute="trailing" secondItem="jhm-Do-aNW" secondAttribute="trailing" id="MrA-35-EgG"/>
+                                                <constraint firstAttribute="bottom" secondItem="jhm-Do-aNW" secondAttribute="bottom" constant="3" id="Pj7-nJ-5tg"/>
+                                                <constraint firstItem="ixe-Wt-9N4" firstAttribute="top" secondItem="x6z-X3-Ngj" secondAttribute="top" constant="8" id="kKa-E2-3by"/>
+                                                <constraint firstItem="jhm-Do-aNW" firstAttribute="leading" secondItem="x6z-X3-Ngj" secondAttribute="leading" id="ub6-5C-UU5"/>
+                                                <constraint firstItem="ixe-Wt-9N4" firstAttribute="centerX" secondItem="x6z-X3-Ngj" secondAttribute="centerX" id="w6R-4b-vp2"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="130" height="160"/>
@@ -1537,11 +1539,11 @@ OU UG I, III, V Sem Examinations, Nov/Dec 2019 Results:
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="notifc" id="Tt1-eN-oBh" customClass="linkCell" customModule="OU_STUDENT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="61.333332061767578"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="notifc" id="Tt1-eN-oBh" customClass="linkCell" customModule="OU_STUDENT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="69.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tt1-eN-oBh" id="rhf-1N-P5D">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="61.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="382.66666666666669" height="69.333335876464844"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFR-QV-tfB">
@@ -1555,7 +1557,7 @@ OU UG I, III, V Sem Examinations, Nov/Dec 2019 Results:
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29-10-2020" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0F-Be-fO5">
-                                                    <rect key="frame" x="215" y="11" width="179" height="21"/>
+                                                    <rect key="frame" x="183.66666666666663" y="11" width="179" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="179" id="4qA-FC-iD1"/>
                                                         <constraint firstAttribute="height" constant="21" id="nK5-ri-dAB"/>
@@ -1565,21 +1567,31 @@ OU UG I, III, V Sem Examinations, Nov/Dec 2019 Results:
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100000" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="yep-Dh-k1a">
-                                                    <rect key="frame" x="8" y="40" width="398" height="18.333333333333329"/>
+                                                    <rect key="frame" x="8" y="40" width="366.66666666666669" height="18.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9h-R9-KTS">
+                                                    <rect key="frame" x="2" y="66.333333333333329" width="378.66666666666669" height="3"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.07452719658613205" blue="0.27447107434272766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="3" id="BEe-bf-l9A"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="zFR-QV-tfB" firstAttribute="leading" secondItem="rhf-1N-P5D" secondAttribute="leading" constant="8" id="0mM-8d-Ah8"/>
-                                                <constraint firstAttribute="bottom" secondItem="yep-Dh-k1a" secondAttribute="bottom" constant="3" id="4EQ-T6-wZg"/>
                                                 <constraint firstAttribute="trailing" secondItem="V0F-Be-fO5" secondAttribute="trailing" constant="20" id="4Uy-f5-BUY"/>
-                                                <constraint firstItem="yep-Dh-k1a" firstAttribute="leading" secondItem="rhf-1N-P5D" secondAttribute="leading" constant="8" id="Xy1-Fu-u25"/>
-                                                <constraint firstItem="yep-Dh-k1a" firstAttribute="top" secondItem="zFR-QV-tfB" secondAttribute="bottom" constant="8" id="hCg-IT-Fbi"/>
-                                                <constraint firstAttribute="trailing" secondItem="yep-Dh-k1a" secondAttribute="trailing" constant="8" id="qdC-os-boS"/>
+                                                <constraint firstAttribute="trailing" secondItem="yep-Dh-k1a" secondAttribute="trailing" constant="8" id="4kd-H4-9na"/>
+                                                <constraint firstAttribute="trailing" secondItem="o9h-R9-KTS" secondAttribute="trailing" constant="2" id="Gcl-pX-ZDU"/>
+                                                <constraint firstItem="yep-Dh-k1a" firstAttribute="leading" secondItem="rhf-1N-P5D" secondAttribute="leading" constant="8" id="NuF-eu-hC2"/>
+                                                <constraint firstItem="o9h-R9-KTS" firstAttribute="leading" secondItem="rhf-1N-P5D" secondAttribute="leading" constant="2" id="gIK-8n-hER"/>
+                                                <constraint firstAttribute="bottom" secondItem="o9h-R9-KTS" secondAttribute="bottom" id="nWD-8m-EZe"/>
                                                 <constraint firstItem="V0F-Be-fO5" firstAttribute="top" secondItem="rhf-1N-P5D" secondAttribute="top" constant="11" id="tbk-eJ-oGy"/>
+                                                <constraint firstItem="o9h-R9-KTS" firstAttribute="top" secondItem="yep-Dh-k1a" secondAttribute="bottom" constant="8" id="wQP-fH-9tM"/>
                                                 <constraint firstItem="zFR-QV-tfB" firstAttribute="top" secondItem="rhf-1N-P5D" secondAttribute="top" constant="11" id="x89-rl-Xp6"/>
+                                                <constraint firstItem="yep-Dh-k1a" firstAttribute="top" secondItem="zFR-QV-tfB" secondAttribute="bottom" constant="8" id="yOw-gi-l4Z"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1637,15 +1649,15 @@ OU UG I, III, V Sem Examinations, Nov/Dec 2019 Results:
                                 <rect key="frame" x="0.0" y="91" width="414" height="645"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alrt1" id="S5D-09-zAE" customClass="linkCell" customModule="OU_STUDENT" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alrt1" id="S5D-09-zAE" customClass="linkCell" customModule="OU_STUDENT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="82.666664123535156"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S5D-09-zAE" id="Psz-Sk-lMY">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="82.666664123535156"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="382.66666666666669" height="82.666664123535156"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Subject" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="hXZ-4x-J3e">
-                                                    <rect key="frame" x="10" y="11" width="394" height="35"/>
+                                                    <rect key="frame" x="10" y="11" width="362.66666666666669" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="Fcv-Dy-vPl"/>
                                                     </constraints>
@@ -1654,7 +1666,7 @@ OU UG I, III, V Sem Examinations, Nov/Dec 2019 Results:
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IED-5A-mzH">
-                                                    <rect key="frame" x="8" y="53.999999999999993" width="398" height="20.666666666666664"/>
+                                                    <rect key="frame" x="8" y="53.999999999999993" width="366.66666666666669" height="20.666666666666664"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1675,7 +1687,7 @@ OU UG I, III, V Sem Examinations, Nov/Dec 2019 Results:
                                             <outlet property="sbjctLbl" destination="hXZ-4x-J3e" id="2TK-6p-eAf"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alrt2" id="VhG-YV-nPa" customClass="linkCell" customModule="OU_STUDENT" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alrt2" editingAccessoryType="disclosureIndicator" id="VhG-YV-nPa" customClass="linkCell" customModule="OU_STUDENT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="110.66666412353516" width="414" height="82.666664123535156"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VhG-YV-nPa" id="X3U-l8-eF6">
